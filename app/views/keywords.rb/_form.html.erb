@@ -1,0 +1,21 @@
+<%= simple_form_for(@keyword, remote: true, html: {class: 'customize_simple_form', id: 'form_keywords'}) do | f | %>
+  <%#= render 'shared/user_detail_for_segment', obj: @keywords.present? ? @keywords.last : nil, segment: 'keyword',f: f %>
+    <div id="keywords_list">
+      <%= render 'keywords/keywords_list' %>
+    </div>
+    <div class="clear_with_height"></div>
+    <%# unless current_party.published? %>
+      <div id='keyword_flash_notice' class="collapse"></div>
+      <div id="keyword_errors"></div>
+
+      <div class="form-group mrgn_lft_2">
+        <%#= hidden_field_tag :segment_detail_id, sub_seg.id %>
+        <%= f.input :keyword, input_html: {class: 'form-control col-xs-5'}, placeholder: 'Enter keyword' %>
+      </div>
+    <%# end %>
+<% end %>
+<script>
+  $('#reset_keyword').click(function () {
+      $('#form_keywords')[0].reset();
+  });
+</script>
